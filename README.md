@@ -5,7 +5,8 @@ Form and validation tools used in many Setelis projects.
 
 
 
-- You can see very basic demo here: http://setelis.github.io/angular-se-forms/demo/
+ - You can see very basic demo here: http://setelis.github.io/angular-se-forms/demo/
+ - Reference data is get from here: http://docs.seforms.apiary.io/
 * **TODO - more info**
 
 # Install:
@@ -25,6 +26,7 @@ Form and validation tools used in many Setelis projects.
  - Lodash
  - bootstrap, optional
  - angular-animate, optional - see the demo http://setelis.github.io/angular-se-notifications/demo
+ - angular-ui-select, angular-sanitize - reference data picker
 
 # For developers:
 # Setup

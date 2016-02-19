@@ -1,4 +1,4 @@
-angular.module("seForms.validation.button", ["seEventHelperService"]).directive("seValidationButton", function ($parse, $log, SeEventHelperService) {
+angular.module("seForms.validation.button", ["seEvents.seEventHelperService"]).directive("seValidationButton", function ($parse, $log, SeEventHelperService) {
 	"use strict";
 	var SHOW_MODEL_VALIDATION_KEY = "showModelValidation";
 
@@ -81,8 +81,10 @@ angular.module("seForms.validation.button", ["seEventHelperService"]).directive(
 				}
 				if (scope[formName].$invalid || !customValidation()) {
 					SeEventHelperService.stopEvent(event);
-
-					scope.$emit("$seValidationButtonEvent", element, errorsToLog(scope[formName].$error));
+					
+					SeEventHelperService.safeApply(scope, function() {
+						scope.$emit("$seValidationButtonEvent", element, errorsToLog(scope[formName].$error));
+					});
 
 					SeEventHelperService.safeApply(scope, showError);
 				} else {
